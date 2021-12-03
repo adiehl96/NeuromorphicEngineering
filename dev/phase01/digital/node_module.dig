@@ -18,150 +18,6 @@
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>i1</string>
-        </entry>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-        <entry>
-          <string>InDefault</string>
-          <value v="16" z="false"/>
-        </entry>
-      </elementAttributes>
-      <pos x="-20" y="80"/>
-    </visualElement>
-    <visualElement>
-      <elementName>In</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Label</string>
-          <string>i2</string>
-        </entry>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-        <entry>
-          <string>InDefault</string>
-          <value v="16" z="false"/>
-        </entry>
-      </elementAttributes>
-      <pos x="-20" y="120"/>
-    </visualElement>
-    <visualElement>
-      <elementName>In</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Label</string>
-          <string>i3</string>
-        </entry>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-        <entry>
-          <string>InDefault</string>
-          <value v="16" z="false"/>
-        </entry>
-      </elementAttributes>
-      <pos x="-20" y="160"/>
-    </visualElement>
-    <visualElement>
-      <elementName>In</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Label</string>
-          <string>i4</string>
-        </entry>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-        <entry>
-          <string>InDefault</string>
-          <value v="16" z="false"/>
-        </entry>
-      </elementAttributes>
-      <pos x="-20" y="200"/>
-    </visualElement>
-    <visualElement>
-      <elementName>In</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Label</string>
-          <string>i5</string>
-        </entry>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-        <entry>
-          <string>InDefault</string>
-          <value v="16" z="false"/>
-        </entry>
-      </elementAttributes>
-      <pos x="-20" y="260"/>
-    </visualElement>
-    <visualElement>
-      <elementName>In</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Label</string>
-          <string>i6</string>
-        </entry>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-        <entry>
-          <string>InDefault</string>
-          <value v="16" z="false"/>
-        </entry>
-      </elementAttributes>
-      <pos x="-20" y="300"/>
-    </visualElement>
-    <visualElement>
-      <elementName>In</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Label</string>
-          <string>i7</string>
-        </entry>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-        <entry>
-          <string>InDefault</string>
-          <value v="16" z="false"/>
-        </entry>
-      </elementAttributes>
-      <pos x="-20" y="340"/>
-    </visualElement>
-    <visualElement>
-      <elementName>In</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Label</string>
-          <string>i8</string>
-        </entry>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-        <entry>
-          <string>InDefault</string>
-          <value v="16" z="false"/>
-        </entry>
-      </elementAttributes>
-      <pos x="-20" y="380"/>
-    </visualElement>
-    <visualElement>
-      <elementName>In</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Label</string>
           <string>start</string>
         </entry>
       </elementAttributes>
@@ -183,7 +39,7 @@
           <int>32</int>
         </entry>
       </elementAttributes>
-      <pos x="560" y="360"/>
+      <pos x="560" y="260"/>
     </visualElement>
     <visualElement>
       <elementName>Clock</elementName>
@@ -226,7 +82,7 @@
       <elementAttributes>
         <entry>
           <string>generic</string>
-          <string>in_nodes := 8;</string>
+          <string>in_nodes := args.in_nodes;</string>
         </entry>
       </elementAttributes>
       <pos x="80" y="120"/>
@@ -241,8 +97,8 @@
       <elementAttributes>
         <entry>
           <string>generic</string>
-          <string>out_nodes := args.out;
-weights := [1,2,4];</string>
+          <string>out_nodes := args.out_nodes;
+weights := args.weights;</string>
         </entry>
       </elementAttributes>
       <pos x="600" y="160"/>
@@ -252,17 +108,53 @@ weights := [1,2,4];</string>
       <elementAttributes>
         <entry>
           <string>generic</string>
-          <string>out:=3;</string>
+          <string>out_nodes:=6;
+weights:=[1,2,4,8,16,32];
+in_nodes:=8;</string>
         </entry>
       </elementAttributes>
       <pos x="260" y="-120"/>
     </visualElement>
+    <visualElement>
+      <elementName>GenericCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>x_output_start := 33;
+y_output_start := 8;
+y_output_add:= 1;
+
+x_input_start := 4;
+y_input_start := 6;
+y_input_add:= 1;
+
+y_input_offset:=0;
+
+for (i:=0;i&lt;args.out_nodes;i++){
+    output:=addComponent(&quot;Out&quot;,x_output_start,y_output_start+i*y_output_add);
+    output.Bits=32;
+    output.Label=&quot;OUT&quot;+i;
+}
+
+for (i:=0;i&lt;args.in_nodes;i++){
+    if(args.in_nodes%2=0)
+    {
+	if(i&gt;=args.in_nodes/2){
+	   y_input_offset = 1;
+	}
+    }
+    output:=addComponent(&quot;In&quot;,x_input_start,y_input_start+i*y_input_add + y_input_offset);
+    output.Bits=32;
+    output.Label=&quot;IN&quot;+i;
+}
+
+addWire(x_input_start+3,y_input_start + args.in_nodes/2,15,10);</string>
+        </entry>
+      </elementAttributes>
+      <pos x="400" y="-940"/>
+    </visualElement>
   </visualElements>
   <wires>
-    <wire>
-      <p1 x="-20" y="160"/>
-      <p2 x="80" y="160"/>
-    </wire>
     <wire>
       <p1 x="260" y="160"/>
       <p2 x="300" y="160"/>
@@ -276,116 +168,40 @@ weights := [1,2,4];</string>
       <p2 x="600" y="160"/>
     </wire>
     <wire>
-      <p1 x="40" y="260"/>
-      <p2 x="80" y="260"/>
-    </wire>
-    <wire>
-      <p1 x="-20" y="260"/>
-      <p2 x="0" y="260"/>
+      <p1 x="60" y="-20"/>
+      <p2 x="140" y="-20"/>
     </wire>
     <wire>
       <p1 x="420" y="100"/>
       <p2 x="440" y="100"/>
     </wire>
     <wire>
-      <p1 x="-20" y="200"/>
-      <p2 x="60" y="200"/>
-    </wire>
-    <wire>
-      <p1 x="140" y="200"/>
-      <p2 x="300" y="200"/>
-    </wire>
-    <wire>
-      <p1 x="220" y="40"/>
-      <p2 x="260" y="40"/>
-    </wire>
-    <wire>
-      <p1 x="20" y="140"/>
-      <p2 x="80" y="140"/>
-    </wire>
-    <wire>
-      <p1 x="440" y="140"/>
-      <p2 x="460" y="140"/>
-    </wire>
-    <wire>
-      <p1 x="-20" y="300"/>
-      <p2 x="20" y="300"/>
-    </wire>
-    <wire>
-      <p1 x="20" y="240"/>
-      <p2 x="80" y="240"/>
-    </wire>
-    <wire>
-      <p1 x="-20" y="80"/>
-      <p2 x="60" y="80"/>
-    </wire>
-    <wire>
-      <p1 x="60" y="-20"/>
-      <p2 x="140" y="-20"/>
-    </wire>
-    <wire>
-      <p1 x="60" y="180"/>
-      <p2 x="80" y="180"/>
-    </wire>
-    <wire>
       <p1 x="360" y="180"/>
       <p2 x="460" y="180"/>
-    </wire>
-    <wire>
-      <p1 x="-20" y="340"/>
-      <p2 x="40" y="340"/>
     </wire>
     <wire>
       <p1 x="140" y="20"/>
       <p2 x="160" y="20"/>
     </wire>
     <wire>
-      <p1 x="60" y="120"/>
-      <p2 x="80" y="120"/>
+      <p1 x="220" y="40"/>
+      <p2 x="260" y="40"/>
     </wire>
     <wire>
-      <p1 x="-20" y="120"/>
-      <p2 x="20" y="120"/>
-    </wire>
-    <wire>
-      <p1 x="60" y="280"/>
-      <p2 x="80" y="280"/>
-    </wire>
-    <wire>
-      <p1 x="0" y="220"/>
-      <p2 x="80" y="220"/>
+      <p1 x="440" y="140"/>
+      <p2 x="460" y="140"/>
     </wire>
     <wire>
       <p1 x="140" y="60"/>
       <p2 x="160" y="60"/>
     </wire>
     <wire>
-      <p1 x="-20" y="380"/>
-      <p2 x="60" y="380"/>
-    </wire>
-    <wire>
-      <p1 x="0" y="220"/>
-      <p2 x="0" y="260"/>
-    </wire>
-    <wire>
       <p1 x="560" y="160"/>
-      <p2 x="560" y="360"/>
+      <p2 x="560" y="260"/>
     </wire>
     <wire>
       <p1 x="260" y="40"/>
       <p2 x="260" y="160"/>
-    </wire>
-    <wire>
-      <p1 x="20" y="240"/>
-      <p2 x="20" y="300"/>
-    </wire>
-    <wire>
-      <p1 x="20" y="120"/>
-      <p2 x="20" y="140"/>
-    </wire>
-    <wire>
-      <p1 x="40" y="260"/>
-      <p2 x="40" y="340"/>
     </wire>
     <wire>
       <p1 x="440" y="100"/>
@@ -398,18 +214,6 @@ weights := [1,2,4];</string>
     <wire>
       <p1 x="140" y="20"/>
       <p2 x="140" y="60"/>
-    </wire>
-    <wire>
-      <p1 x="60" y="80"/>
-      <p2 x="60" y="120"/>
-    </wire>
-    <wire>
-      <p1 x="60" y="280"/>
-      <p2 x="60" y="380"/>
-    </wire>
-    <wire>
-      <p1 x="60" y="180"/>
-      <p2 x="60" y="200"/>
     </wire>
   </wires>
   <measurementOrdering/>
