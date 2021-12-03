@@ -180,7 +180,7 @@ neighbourhood_size := 3;</string>
           <value v="1" z="false"/>
         </entry>
       </elementAttributes>
-      <pos x="1080" y="-120"/>
+      <pos x="1080" y="-60"/>
     </visualElement>
     <visualElement>
       <elementName>In</elementName>
@@ -655,10 +655,6 @@ neighbourhood_size := 3;</string>
       <p2 x="4080" y="-120"/>
     </wire>
     <wire>
-      <p1 x="1080" y="-120"/>
-      <p2 x="1360" y="-120"/>
-    </wire>
-    <wire>
       <p1 x="1660" y="120"/>
       <p2 x="1720" y="120"/>
     </wire>
@@ -725,6 +721,10 @@ neighbourhood_size := 3;</string>
     <wire>
       <p1 x="1500" y="440"/>
       <p2 x="3640" y="440"/>
+    </wire>
+    <wire>
+      <p1 x="1080" y="-60"/>
+      <p2 x="1360" y="-60"/>
     </wire>
     <wire>
       <p1 x="2180" y="380"/>
@@ -976,7 +976,7 @@ neighbourhood_size := 3;</string>
     </wire>
     <wire>
       <p1 x="1360" y="-280"/>
-      <p2 x="1360" y="-120"/>
+      <p2 x="1360" y="-60"/>
     </wire>
     <wire>
       <p1 x="3800" y="120"/>
