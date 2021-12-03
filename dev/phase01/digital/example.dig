@@ -149,96 +149,6 @@ neighbourhood_size := 3;</string>
       <pos x="1080" y="-20"/>
     </visualElement>
     <visualElement>
-      <elementName>Out</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-      </elementAttributes>
-      <pos x="1440" y="60"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Out</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-      </elementAttributes>
-      <pos x="1860" y="60"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Out</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-      </elementAttributes>
-      <pos x="2220" y="60"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Out</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-      </elementAttributes>
-      <pos x="2540" y="60"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Out</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-      </elementAttributes>
-      <pos x="2840" y="60"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Out</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-      </elementAttributes>
-      <pos x="3160" y="60"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Out</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-      </elementAttributes>
-      <pos x="3480" y="60"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Out</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-      </elementAttributes>
-      <pos x="3820" y="60"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Out</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-      </elementAttributes>
-      <pos x="4260" y="60"/>
-    </visualElement>
-    <visualElement>
       <elementName>final_finder.dig</elementName>
       <elementAttributes>
         <entry>
@@ -861,42 +771,6 @@ neighbourhood_size := 3;</string>
     <wire>
       <p1 x="4160" y="60"/>
       <p2 x="4180" y="60"/>
-    </wire>
-    <wire>
-      <p1 x="3740" y="60"/>
-      <p2 x="3820" y="60"/>
-    </wire>
-    <wire>
-      <p1 x="1800" y="60"/>
-      <p2 x="1860" y="60"/>
-    </wire>
-    <wire>
-      <p1 x="1380" y="60"/>
-      <p2 x="1440" y="60"/>
-    </wire>
-    <wire>
-      <p1 x="2140" y="60"/>
-      <p2 x="2220" y="60"/>
-    </wire>
-    <wire>
-      <p1 x="4180" y="60"/>
-      <p2 x="4260" y="60"/>
-    </wire>
-    <wire>
-      <p1 x="2480" y="60"/>
-      <p2 x="2540" y="60"/>
-    </wire>
-    <wire>
-      <p1 x="3100" y="60"/>
-      <p2 x="3160" y="60"/>
-    </wire>
-    <wire>
-      <p1 x="2780" y="60"/>
-      <p2 x="2840" y="60"/>
-    </wire>
-    <wire>
-      <p1 x="3400" y="60"/>
-      <p2 x="3480" y="60"/>
     </wire>
     <wire>
       <p1 x="1360" y="-320"/>
