@@ -6,6 +6,14 @@
       <string>isGeneric</string>
       <boolean>true</boolean>
     </entry>
+    <entry>
+      <string>Height</string>
+      <int>7</int>
+    </entry>
+    <entry>
+      <string>Width</string>
+      <int>5</int>
+    </entry>
   </attributes>
   <visualElements>
     <visualElement>
@@ -68,7 +76,7 @@
         </entry>
         <entry>
           <string>Data</string>
-          <data>7fffffff</data>
+          <data>7ffffff1</data>
         </entry>
         <entry>
           <string>Inputs</string>
@@ -82,7 +90,7 @@
       <elementAttributes>
         <entry>
           <string>generic</string>
-          <string>in_nodes := args.in_nodes;</string>
+          <string>in_nodes := args.neighbourhood_size;</string>
         </entry>
       </elementAttributes>
       <pos x="80" y="120"/>
@@ -97,8 +105,8 @@
       <elementAttributes>
         <entry>
           <string>generic</string>
-          <string>out_nodes := args.out_nodes;
-weights := args.weights;</string>
+          <string>out_nodes := args.neighbourhood_size;
+weights := args.edge_weights;</string>
         </entry>
       </elementAttributes>
       <pos x="600" y="160"/>
@@ -108,9 +116,8 @@ weights := args.weights;</string>
       <elementAttributes>
         <entry>
           <string>generic</string>
-          <string>out_nodes:=6;
-weights:=[1,2,4,8,16,32];
-in_nodes:=8;</string>
+          <string>neighbourhood_size:=6;
+edge_weights:=[1,1,1,1,1,1];</string>
         </entry>
       </elementAttributes>
       <pos x="260" y="-120"/>
@@ -130,28 +137,28 @@ y_input_add:= 1;
 
 y_input_offset:=0;
 
-for (i:=0;i&lt;args.out_nodes;i++){
+for (i:=0;i&lt;args.neighbourhood_size;i++){
     output:=addComponent(&quot;Out&quot;,x_output_start,y_output_start+i*y_output_add);
     output.Bits=32;
-    output.Label=&quot;OUT&quot;+i;
+    output.Label=&quot;O&quot;+i;
 }
 
-for (i:=0;i&lt;args.in_nodes;i++){
-    if(args.in_nodes%2=0)
+for (i:=0;i&lt;args.neighbourhood_size;i++){
+    if(args.neighbourhood_size%2=0)
     {
-	if(i&gt;=args.in_nodes/2){
+	if(i&gt;=args.neighbourhood_size/2){
 	   y_input_offset = 1;
 	}
     }
     output:=addComponent(&quot;In&quot;,x_input_start,y_input_start+i*y_input_add + y_input_offset);
     output.Bits=32;
-    output.Label=&quot;IN&quot;+i;
+    output.Label=&quot;I&quot;+i;
 }
 
-addWire(x_input_start+3,y_input_start + args.in_nodes/2,15,10);</string>
+addWire(x_input_start+3,y_input_start + args.neighbourhood_size/2,15,10);</string>
         </entry>
       </elementAttributes>
-      <pos x="400" y="-940"/>
+      <pos x="380" y="-940"/>
     </visualElement>
   </visualElements>
   <wires>

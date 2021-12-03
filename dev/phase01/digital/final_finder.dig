@@ -37,7 +37,7 @@
       <elementAttributes>
         <entry>
           <string>generic</string>
-          <string>in_nodes:=3;</string>
+          <string>in_nodes:=9;</string>
         </entry>
       </elementAttributes>
       <pos x="280" y="60"/>

@@ -44,7 +44,7 @@ for (i:=0;i&lt;args.out_nodes;i++){
     constant_zero.Value=0;
     output:=addComponent(&quot;Out&quot;,x_comp_start+3,y_comp_start+i*y_comp_add);
     output.Bits=32;
-    output.Label=&quot;OUT&quot;+i;
+    output.Label=&quot;O&quot;+i;
     tunnel:=addComponent(&quot;Tunnel&quot;,x_comp_start+3,y_comp_start+i*y_comp_add+1);
     addWire(x_wire_start, y_wire_start, x_comp_start,y_comp_start+i*y_comp_add);
 }</string>

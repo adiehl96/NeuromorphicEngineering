@@ -30,7 +30,7 @@
           <string>x:=41;
 x_mid:=31;
 
-for (i:=1;i&lt;=args.nodes;i++) {
+for (i:=0;i&lt;args.nodes;i++) {
     y:=i*4;
     comp:=addComponent(&quot;comparetoX.dig&quot;,x_mid,y);
     comp.value:=i;

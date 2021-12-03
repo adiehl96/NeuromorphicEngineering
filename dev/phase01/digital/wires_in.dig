@@ -53,7 +53,7 @@ addWire(x_start,y_start, x_comp_start,y_comp_start);
 for (i:=1;i&lt;args.in_nodes;i++){
     input:=addComponent(&quot;In&quot;,x_start,y_start+i*4);
     input.Bits=32;
-    input.Label=&quot;in_&quot;+i;
+    input.Label=&quot;I&quot;+i;
     addWire(x_start, y_start+i*4,x_comp_start+(i-1)*x_comp_add,y_comp_start+(i-1)*y_comp_add+2);
 }</string>
         </entry>
