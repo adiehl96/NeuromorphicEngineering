@@ -37,7 +37,7 @@
       <elementAttributes>
         <entry>
           <string>generic</string>
-          <string>in_nodes:=5;</string>
+          <string>in_nodes:=3;</string>
         </entry>
       </elementAttributes>
       <pos x="280" y="60"/>
@@ -53,6 +53,13 @@ addWire(21,23+args.in_nodes/2,23,25);
 
 for(i:=0;i&lt;args.in_nodes; i++)
 {
+    addYwire := i;
+    if(args.in_nodes%2=0)
+    {
+	if(i+1&gt;args.in_nodes/2){
+	   addYwire = addYwire+1;
+	}
+    }
     inp:=addComponent(&quot;In&quot;, inp_x+i*5,0);
     inp.Bits=32;
     inp.Label=&quot;in_&quot;+i;
@@ -63,7 +70,7 @@ for(i:=0;i&lt;args.in_nodes; i++)
     addWire(inp_x+i*5,0,inp_x+i*5+2,6);
     addWire(19,8,inp_x+i*5+2,4);
     addWire(21,13+i,inp_x+i*5+3,6);
-    addWire(inp_x+i*5+4,5,18,23+i);
+    addWire(inp_x+i*5+4,5,18,23+addYwire);
 }</string>
         </entry>
       </elementAttributes>
