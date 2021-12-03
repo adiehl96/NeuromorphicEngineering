@@ -121,11 +121,6 @@
       <pos x="620" y="120"/>
     </visualElement>
     <visualElement>
-      <elementName>node_module.dig</elementName>
-      <elementAttributes/>
-      <pos x="460" y="140"/>
-    </visualElement>
-    <visualElement>
       <elementName>cheapSelector.dig</elementName>
       <elementAttributes/>
       <pos x="300" y="160"/>
@@ -343,6 +338,11 @@
         </entry>
       </elementAttributes>
       <pos x="80" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>decreasing_mem.dig</elementName>
+      <elementAttributes/>
+      <pos x="460" y="140"/>
     </visualElement>
   </visualElements>
   <wires>
