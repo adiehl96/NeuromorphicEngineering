@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>1</version>
+  <attributes>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>in_nodes:=5;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="460" y="-160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>num_comp := args.in_nodes-1;
+x_start := 26;
+y_start := 0;
+
+x_comp_start := 36;
+y_comp_start := 0;
+x_comp_add:= 10;
+y_comp_add:= 5;
+
+//output creation
+outp:= addComponent(&quot;Out&quot;, x_comp_start+num_comp*x_comp_add, y_comp_start+num_comp*y_comp_add);
+outp.Bits=32;
+outp.Label=&quot;out&quot;;
+
+//cheapest selector creations and inter-wires
+for (i:=0;i&lt;num_comp;i++){
+    comp:=addComponent(&quot;cheapSelector.dig&quot;,x_comp_start+i*x_comp_add, y_comp_start+i*y_comp_add);
+    addWire(x_comp_start+i*x_comp_add+3,y_comp_start+i*y_comp_add+1,x_comp_start+(i+1)*x_comp_add,y_comp_start+(i+1)*y_comp_add);
+}
+
+//First input and wire
+input1:=addComponent(&quot;In&quot;,x_start,y_start);
+input1.Bits=32;
+input1.Label=&quot;in_&quot;+0;
+addWire(x_start,y_start, x_comp_start,y_comp_start);
+
+//other input creations and wiring
+for (i:=1;i&lt;args.in_nodes;i++){
+    input:=addComponent(&quot;In&quot;,x_start,y_start+i*4);
+    input.Bits=32;
+    input.Label=&quot;in_&quot;+i;
+    addWire(x_start, y_start+i*4,x_comp_start+(i-1)*x_comp_add,y_comp_start+(i-1)*y_comp_add+2);
+}</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1440" y="-660"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes/>
+      <pos x="1160" y="-720"/>
+    </visualElement>
+  </visualElements>
+  <wires/>
+  <measurementOrdering/>
+</circuit>

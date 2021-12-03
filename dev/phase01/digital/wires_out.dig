@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>1</version>
+  <attributes>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>out_nodes:=3;
+weights:=[1,2,4];</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-60" y="-120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>num_comp := args.out_nodes;
+x_wire_start := 0;
+y_wire_start := 0;
+
+x_comp_start := 4;
+y_comp_start := 0;
+x_comp_add:= 0;
+y_comp_add:= 5;
+
+for (i:=0;i&lt;args.out_nodes;i++){
+    adder:=addComponent(&quot;Add&quot;, x_comp_start,y_comp_start+i*y_comp_add);
+    adder.Bits=32;
+    weight:=addComponent(&quot;Const&quot;,x_comp_start,y_comp_start+i*y_comp_add+1);
+    weight.Bits=32;
+    weight.Value=args.weights[i];
+    constant_zero:=addComponent(&quot;Const&quot;,x_comp_start,y_comp_start+i*y_comp_add+2);
+    constant_zero.Bits=1;
+    constant_zero.Value=0;
+    output:=addComponent(&quot;Out&quot;,x_comp_start+3,y_comp_start+i*y_comp_add);
+    output.Bits=32;
+    output.Label=&quot;OUT&quot;+i;
+    tunnel:=addComponent(&quot;Tunnel&quot;,x_comp_start+3,y_comp_start+i*y_comp_add+1);
+    addWire(x_wire_start, y_wire_start, x_comp_start,y_comp_start+i*y_comp_add);
+}</string>
+        </entry>
+      </elementAttributes>
+      <pos x="60" y="-780"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>IN1</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="0"/>
+    </visualElement>
+  </visualElements>
+  <wires/>
+  <measurementOrdering/>
+</circuit>
