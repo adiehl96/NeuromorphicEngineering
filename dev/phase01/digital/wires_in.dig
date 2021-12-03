@@ -60,11 +60,6 @@ for (i:=1;i&lt;args.in_nodes;i++){
       </elementAttributes>
       <pos x="1440" y="-660"/>
     </visualElement>
-    <visualElement>
-      <elementName>In</elementName>
-      <elementAttributes/>
-      <pos x="1160" y="-720"/>
-    </visualElement>
   </visualElements>
   <wires/>
   <measurementOrdering/>
