@@ -17,19 +17,18 @@
   </attributes>
   <visualElements>
     <visualElement>
-      <elementName>cheapSelector.dig</elementName>
-      <elementAttributes/>
-      <pos x="300" y="160"/>
-    </visualElement>
-    <visualElement>
       <elementName>In</elementName>
       <elementAttributes>
+        <entry>
+          <string>small</string>
+          <boolean>true</boolean>
+        </entry>
         <entry>
           <string>Label</string>
           <string>start</string>
         </entry>
       </elementAttributes>
-      <pos x="60" y="-20"/>
+      <pos x="460" y="220"/>
     </visualElement>
     <visualElement>
       <elementName>Out</elementName>
@@ -47,11 +46,15 @@
           <int>32</int>
         </entry>
       </elementAttributes>
-      <pos x="560" y="260"/>
+      <pos x="580" y="260"/>
     </visualElement>
     <visualElement>
       <elementName>Clock</elementName>
       <elementAttributes>
+        <entry>
+          <string>small</string>
+          <boolean>true</boolean>
+        </entry>
         <entry>
           <string>runRealTime</string>
           <boolean>true</boolean>
@@ -65,29 +68,7 @@
           <int>50000</int>
         </entry>
       </elementAttributes>
-      <pos x="420" y="100"/>
-    </visualElement>
-    <visualElement>
-      <elementName>LookUpTable</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Label</string>
-          <string>LUT</string>
-        </entry>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-        <entry>
-          <string>Data</string>
-          <data>7ffffff1</data>
-        </entry>
-        <entry>
-          <string>Inputs</string>
-          <int>2</int>
-        </entry>
-      </elementAttributes>
-      <pos x="160" y="20"/>
+      <pos x="460" y="140"/>
     </visualElement>
     <visualElement>
       <elementName>wires_in.dig</elementName>
@@ -97,7 +78,7 @@
           <string>in_nodes := args.neighbourhood_size;</string>
         </entry>
       </elementAttributes>
-      <pos x="80" y="120"/>
+      <pos x="300" y="120"/>
     </visualElement>
     <visualElement>
       <elementName>decreasing_mem.dig</elementName>
@@ -120,7 +101,7 @@ weights := args.edge_weights;</string>
       <elementAttributes>
         <entry>
           <string>generic</string>
-          <string>neighbourhood_size:=2;
+          <string>neighbourhood_size:=4;
 edge_weights:=[4,8,1,1,1,1];</string>
         </entry>
       </elementAttributes>
@@ -135,7 +116,7 @@ edge_weights:=[4,8,1,1,1,1];</string>
 y_output_start := 8;
 y_output_add:= 1;
 
-x_input_start := 4;
+x_input_start := 15;
 y_input_start := 6;
 y_input_add:= 1;
 
@@ -159,72 +140,83 @@ for (i:=0;i&lt;args.neighbourhood_size;i++){
     output.Label=&quot;I&quot;+i;
 }
 
-addWire(x_input_start+3,y_input_start + args.neighbourhood_size/2,15,10);</string>
+addWire(x_input_start+3,y_input_start + args.neighbourhood_size/2,23,8);</string>
         </entry>
       </elementAttributes>
       <pos x="380" y="-940"/>
     </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>small</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>clr</string>
+        </entry>
+      </elementAttributes>
+      <pos x="460" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>clock clr start I0 I1 I2 I3 own O0 O1 O2 O3
+
+############################ Vertex 0 to every other Vertex 
+
+0 1 0 10 10 10 10 2147483647 2147483648 2147483649 2147483651 2147483655 # reset line
+
+C 0 0 10 10 10 10 10 11 12 14 18
+
+C 0 0 10 5 10 10 5 6 7 9 13
+
+C 1 0 10 5 10 10 2147483647 2147483648 2147483649 2147483651 2147483655
+
+C 0 0 50 50 50 50 50 51 52 54 58
+
+C 0 0 50 3 50 50 3 4 5 7 11
+
+C 0 1 50 3 50 50 0 1 2 4 8
+
+C 1 0 50 3 50 50 2147483647 2147483648 2147483649 2147483651 2147483655
+
+C 0 0 50 3 50 50 3 4 5 7 11</dataString>
+          </testData>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>edge_weights := [1,2,4,8];
+neighbourhood_size := 4;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="-60"/>
+    </visualElement>
   </visualElements>
   <wires>
     <wire>
-      <p1 x="260" y="160"/>
-      <p2 x="300" y="160"/>
+      <p1 x="540" y="160"/>
+      <p2 x="580" y="160"/>
     </wire>
     <wire>
-      <p1 x="520" y="160"/>
-      <p2 x="560" y="160"/>
-    </wire>
-    <wire>
-      <p1 x="560" y="160"/>
+      <p1 x="580" y="160"/>
       <p2 x="600" y="160"/>
     </wire>
     <wire>
-      <p1 x="60" y="-20"/>
-      <p2 x="140" y="-20"/>
+      <p1 x="520" y="180"/>
+      <p2 x="540" y="180"/>
     </wire>
     <wire>
-      <p1 x="420" y="100"/>
-      <p2 x="440" y="100"/>
+      <p1 x="580" y="160"/>
+      <p2 x="580" y="260"/>
     </wire>
     <wire>
-      <p1 x="360" y="180"/>
-      <p2 x="460" y="180"/>
-    </wire>
-    <wire>
-      <p1 x="140" y="20"/>
-      <p2 x="160" y="20"/>
-    </wire>
-    <wire>
-      <p1 x="220" y="40"/>
-      <p2 x="260" y="40"/>
-    </wire>
-    <wire>
-      <p1 x="440" y="140"/>
-      <p2 x="460" y="140"/>
-    </wire>
-    <wire>
-      <p1 x="140" y="60"/>
-      <p2 x="160" y="60"/>
-    </wire>
-    <wire>
-      <p1 x="560" y="160"/>
-      <p2 x="560" y="260"/>
-    </wire>
-    <wire>
-      <p1 x="260" y="40"/>
-      <p2 x="260" y="160"/>
-    </wire>
-    <wire>
-      <p1 x="440" y="100"/>
-      <p2 x="440" y="140"/>
-    </wire>
-    <wire>
-      <p1 x="140" y="-20"/>
-      <p2 x="140" y="20"/>
-    </wire>
-    <wire>
-      <p1 x="140" y="20"/>
-      <p2 x="140" y="60"/>
+      <p1 x="540" y="160"/>
+      <p2 x="540" y="180"/>
     </wire>
   </wires>
   <measurementOrdering/>

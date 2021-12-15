@@ -6,6 +6,10 @@
       <string>isGeneric</string>
       <boolean>true</boolean>
     </entry>
+    <entry>
+      <string>Height</string>
+      <int>13</int>
+    </entry>
   </attributes>
   <visualElements>
     <visualElement>
@@ -16,7 +20,7 @@
           <string>number_of_inputs := 1;</string>
         </entry>
       </elementAttributes>
-      <pos x="120" y="60"/>
+      <pos x="120" y="80"/>
     </visualElement>
     <visualElement>
       <elementName>GenericCode</elementName>
@@ -98,6 +102,10 @@ for (i:=args.number_of_inputs;i&lt;possible_inputs;i++){
           <string>Bits</string>
           <int>32</int>
         </entry>
+        <entry>
+          <string>InDefault</string>
+          <value v="1" z="false"/>
+        </entry>
       </elementAttributes>
       <pos x="-20" y="0"/>
     </visualElement>
@@ -117,26 +125,12 @@ for (i:=args.number_of_inputs;i&lt;possible_inputs;i++){
           <int>32</int>
         </entry>
       </elementAttributes>
-      <pos x="220" y="40"/>
-    </visualElement>
-    <visualElement>
-      <elementName>D_FF</elementName>
-      <elementAttributes>
-        <entry>
-          <string>mirror</string>
-          <boolean>true</boolean>
-        </entry>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-      </elementAttributes>
-      <pos x="140" y="40"/>
+      <pos x="220" y="60"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
       <elementAttributes/>
-      <pos x="200" y="20"/>
+      <pos x="200" y="40"/>
     </visualElement>
     <visualElement>
       <elementName>Clock</elementName>
@@ -154,7 +148,7 @@ for (i:=args.number_of_inputs;i&lt;possible_inputs;i++){
           <string>clk</string>
         </entry>
       </elementAttributes>
-      <pos x="200" y="-20"/>
+      <pos x="200" y="-60"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -175,10 +169,76 @@ for (i:=args.number_of_inputs;i&lt;possible_inputs;i++){
         </entry>
         <entry>
           <string>generic</string>
-          <string>maxValue := args.number_of_inputs-1;</string>
+          <string>maxValue := args.number_of_inputs;</string>
         </entry>
       </elementAttributes>
-      <pos x="160" y="-20"/>
+      <pos x="160" y="-60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>D_FF_AS</elementName>
+      <elementAttributes>
+        <entry>
+          <string>mirror</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="140" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>clr</string>
+        </entry>
+      </elementAttributes>
+      <pos x="200" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>0</long>
+        </entry>
+      </elementAttributes>
+      <pos x="140" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>clk clr Select in_0 in_1 Out
+
+############################ Vertex 0 to every other Vertex 
+loop(t,9)
+  C 1 0 (t) 0 0 # reset line
+
+  loop(a,8)
+    C 0 0 (t) 0 0
+  end loop
+
+  C 0 0 (t) 0 (t)
+end loop
+</dataString>
+          </testData>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>number_of_inputs := 9;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-120" y="-180"/>
     </visualElement>
   </visualElements>
   <wires>
@@ -191,24 +251,48 @@ for (i:=args.number_of_inputs;i&lt;possible_inputs;i++){
       <p2 x="80" y="0"/>
     </wire>
     <wire>
-      <p1 x="160" y="-20"/>
-      <p2 x="200" y="-20"/>
+      <p1 x="120" y="0"/>
+      <p2 x="140" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="-100"/>
+      <p2 x="180" y="-100"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="-100"/>
+      <p2 x="200" y="-100"/>
     </wire>
     <wire>
       <p1 x="100" y="20"/>
       <p2 x="140" y="20"/>
     </wire>
     <wire>
-      <p1 x="200" y="40"/>
-      <p2 x="220" y="40"/>
+      <p1 x="120" y="-40"/>
+      <p2 x="180" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="-60"/>
+      <p2 x="200" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="200" y="60"/>
+      <p2 x="220" y="60"/>
     </wire>
     <wire>
       <p1 x="80" y="0"/>
       <p2 x="80" y="60"/>
     </wire>
     <wire>
-      <p1 x="100" y="-20"/>
+      <p1 x="100" y="-80"/>
       <p2 x="100" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="-100"/>
+      <p2 x="180" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="-40"/>
+      <p2 x="120" y="0"/>
     </wire>
   </wires>
   <measurementOrdering/>

@@ -33,16 +33,6 @@
       <pos x="480" y="260"/>
     </visualElement>
     <visualElement>
-      <elementName>Const</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Value</string>
-          <long>0</long>
-        </entry>
-      </elementAttributes>
-      <pos x="460" y="300"/>
-    </visualElement>
-    <visualElement>
       <elementName>Comparator</elementName>
       <elementAttributes>
         <entry>
@@ -124,6 +114,20 @@
       </elementAttributes>
       <pos x="760" y="280"/>
     </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>small</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>clr</string>
+        </entry>
+      </elementAttributes>
+      <pos x="480" y="300"/>
+    </visualElement>
   </visualElements>
   <wires>
     <wire>
@@ -169,10 +173,6 @@
     <wire>
       <p1 x="640" y="300"/>
       <p2 x="660" y="300"/>
-    </wire>
-    <wire>
-      <p1 x="460" y="300"/>
-      <p2 x="480" y="300"/>
     </wire>
     <wire>
       <p1 x="640" y="280"/>
