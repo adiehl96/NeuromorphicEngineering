@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>1</version>
+  <attributes>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>number_of_inputs := 1;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>num_comp := args.number_of_inputs;
+
+x_inp_start := 3;
+y_inp_start := 3;
+y_inp_add := 1;
+
+x_mpout_start := 5;
+y_mpout_start := 4;
+y_mpout_add := 1;
+
+x_wire_start:=5;
+y_wire_start:=3;
+
+select_bits:=1;
+possible_inputs:=2;
+while (possible_inputs&lt;args.number_of_inputs){
+    select_bits = select_bits + 1;
+    possible_inputs = possible_inputs * 2;
+}
+
+splitter:=addComponent(&quot;Splitter&quot;, 1,0);
+splitter.Bits = 32;
+splitter.&apos;Input Splitting&apos; = &quot;&quot;+32;
+splitter.&apos;Output Splitting&apos; = &quot;&quot;+select_bits+&quot;,&quot;+(32-select_bits);
+
+multiplexer:=addComponent(&quot;Multiplexer&quot;, 3,3);
+multiplexer.Bits = 32;
+multiplexer.&apos;Selector Bits&apos; = select_bits;
+multiplexer.flipSelPos = 1;
+
+addWire(x_wire_start, y_wire_start + possible_inputs/2, 7, 2);
+
+for (i:=0;i&lt;args.number_of_inputs;i++){
+    unary_buffer := 0;
+    if (select_bits = 1){
+        if (i=1){
+            unary_buffer = 1;
+        }
+    }
+    input:=addComponent(&quot;In&quot;, x_inp_start,y_inp_start+i*y_inp_add+unary_buffer);
+    input.Bits=32;
+    input.small=1;
+    input.Label=&quot;in_&quot;+i;
+}
+
+for (i:=args.number_of_inputs;i&lt;possible_inputs;i++){
+    unary_buffer := 0;
+    if (select_bits = 1){
+        if (i=1){
+            unary_buffer = 1;
+        }
+    }
+    nonce:=addComponent(&quot;Const&quot;,x_inp_start,y_inp_start+i*y_inp_add+ unary_buffer);
+    nonce.Bits=32;
+    nonce.Value=0;
+}</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="-1820"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>Select</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="-20" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>small</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>Out</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="220" y="40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>D_FF</elementName>
+      <elementAttributes>
+        <entry>
+          <string>mirror</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="140" y="40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes/>
+      <pos x="200" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Clock</elementName>
+      <elementAttributes>
+        <entry>
+          <string>runRealTime</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>clk</string>
+        </entry>
+      </elementAttributes>
+      <pos x="200" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+      </elementAttributes>
+      <pos x="40" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>final_countup.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>maxValue := args.number_of_inputs-1;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="160" y="-20"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="-20" y="0"/>
+      <p2 x="20" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="0"/>
+      <p2 x="80" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="-20"/>
+      <p2 x="200" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="100" y="20"/>
+      <p2 x="140" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="200" y="40"/>
+      <p2 x="220" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="80" y="0"/>
+      <p2 x="80" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="100" y="-20"/>
+      <p2 x="100" y="20"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

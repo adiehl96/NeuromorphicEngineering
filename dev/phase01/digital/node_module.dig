@@ -120,8 +120,8 @@ weights := args.edge_weights;</string>
       <elementAttributes>
         <entry>
           <string>generic</string>
-          <string>neighbourhood_size:=6;
-edge_weights:=[1,1,1,1,1,1];</string>
+          <string>neighbourhood_size:=2;
+edge_weights:=[4,8,1,1,1,1];</string>
         </entry>
       </elementAttributes>
       <pos x="260" y="-120"/>
