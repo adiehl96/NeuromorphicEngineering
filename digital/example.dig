@@ -300,7 +300,7 @@ neighbourhood_size := 3;</string>
         <entry>
           <string>Testdata</string>
           <testData>
-            <dataString>clock clr VS VT  SP
+            <dataString>clk clr VS VT SP
 
 ############################ Vertex 0 to every other Vertex 
 loop(s,9)

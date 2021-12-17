@@ -79,7 +79,7 @@ for (i:=0;i&lt;args.out_nodes;i++){
         <entry>
           <string>Testdata</string>
           <testData>
-            <dataString>IN O0 O1 O2
+            <dataString>in o0 o1 o2
 0 1 2 4
 10 11 12 14
 4294967295 4294967295 4294967295 4294967295</dataString>
