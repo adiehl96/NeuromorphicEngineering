@@ -22,7 +22,18 @@ If you do not have access to the Arduino MKR Vidor 4000, you can simulate the ci
 6. Click on the 'clr' input and set this value to 0.
 7. Observe the value displayed at the output named "SP". Note that its value is displayed in hexadecimal notation.
 
+## License
+The files in directory `quartus` are released under the MIT license, which can be found in the file called [LICENSE](quartus/LICENSE).
+
+Everything else in this repository is released under the GNU General Public License v3.0 which you can find in the file called [LICENSE](LICENSE).
+
 ## Documentation
 You can find images of all graphs as well as a schematic of the circuits integration with JTAG in the directory `docs/images`.
 
 In the directory `docs/tests`, there are several csv files describing the output of test cases to indicate the correctness of every component.
+
+## References
+This project makes use of the following projects:
+* [JTAG_Interface](https://github.com/HerrNamenlos123/JTAG_Interface)
+* [Digital](https://github.com/hneemann/Digital)
+* [Quarev Telegram Bot](https://github.com/adiehl96/quarevTelegramBot)
