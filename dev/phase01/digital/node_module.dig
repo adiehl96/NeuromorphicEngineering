@@ -25,7 +25,7 @@
         </entry>
         <entry>
           <string>Label</string>
-          <string>start</string>
+          <string>init</string>
         </entry>
       </elementAttributes>
       <pos x="460" y="220"/>
@@ -35,7 +35,7 @@
       <elementAttributes>
         <entry>
           <string>rotation</string>
-          <rotation rotation="3"/>
+          <rotation rotation="2"/>
         </entry>
         <entry>
           <string>Label</string>
@@ -46,7 +46,7 @@
           <int>32</int>
         </entry>
       </elementAttributes>
-      <pos x="580" y="260"/>
+      <pos x="540" y="100"/>
     </visualElement>
     <visualElement>
       <elementName>Clock</elementName>
@@ -61,7 +61,7 @@
         </entry>
         <entry>
           <string>Label</string>
-          <string>clock</string>
+          <string>clk</string>
         </entry>
         <entry>
           <string>Frequency</string>
@@ -78,7 +78,7 @@
           <string>in_nodes := args.neighbourhood_size;</string>
         </entry>
       </elementAttributes>
-      <pos x="300" y="120"/>
+      <pos x="320" y="120"/>
     </visualElement>
     <visualElement>
       <elementName>decreasing_mem.dig</elementName>
@@ -94,14 +94,14 @@
 weights := args.edge_weights;</string>
         </entry>
       </elementAttributes>
-      <pos x="600" y="160"/>
+      <pos x="560" y="160"/>
     </visualElement>
     <visualElement>
       <elementName>GenericInitCode</elementName>
       <elementAttributes>
         <entry>
           <string>generic</string>
-          <string>neighbourhood_size:=4;
+          <string>neighbourhood_size:=5;
 edge_weights:=[4,8,1,1,1,1];</string>
         </entry>
       </elementAttributes>
@@ -112,11 +112,11 @@ edge_weights:=[4,8,1,1,1,1];</string>
       <elementAttributes>
         <entry>
           <string>generic</string>
-          <string>x_output_start := 33;
+          <string>x_output_start := 31;
 y_output_start := 8;
 y_output_add:= 1;
 
-x_input_start := 15;
+x_input_start := 16;
 y_input_start := 6;
 y_input_add:= 1;
 
@@ -125,7 +125,8 @@ y_input_offset:=0;
 for (i:=0;i&lt;args.neighbourhood_size;i++){
     output:=addComponent(&quot;Out&quot;,x_output_start,y_output_start+i*y_output_add);
     output.Bits=32;
-    output.Label=&quot;O&quot;+i;
+    output.Label=&quot;o&quot;+i;
+    output.small=1;
 }
 
 for (i:=0;i&lt;args.neighbourhood_size;i++){
@@ -137,7 +138,8 @@ for (i:=0;i&lt;args.neighbourhood_size;i++){
     }
     output:=addComponent(&quot;In&quot;,x_input_start,y_input_start+i*y_input_add + y_input_offset);
     output.Bits=32;
-    output.Label=&quot;I&quot;+i;
+    output.Label=&quot;i&quot;+i;
+    output.small=1;
 }
 
 addWire(x_input_start+3,y_input_start + args.neighbourhood_size/2,23,8);</string>
@@ -165,17 +167,17 @@ addWire(x_input_start+3,y_input_start + args.neighbourhood_size/2,23,8);</string
         <entry>
           <string>Testdata</string>
           <testData>
-            <dataString>clock clr start I0 I1 I2 I3 own O0 O1 O2 O3
+            <dataString>clk clr init i0 i1 i2 i3 own o0 o1 o2 o3
 
 ############################ Vertex 0 to every other Vertex 
 
-0 1 0 10 10 10 10 2147483647 2147483648 2147483649 2147483651 2147483655 # reset line
+0 1 0 10 10 10 10 4294967295 4294967295 4294967295 4294967295 4294967295 # reset line
 
 C 0 0 10 10 10 10 10 11 12 14 18
 
 C 0 0 10 5 10 10 5 6 7 9 13
 
-C 1 0 10 5 10 10 2147483647 2147483648 2147483649 2147483651 2147483655
+C 1 0 10 5 10 10 4294967295 4294967295 4294967295 4294967295 4294967295
 
 C 0 0 50 50 50 50 50 51 52 54 58
 
@@ -183,7 +185,7 @@ C 0 0 50 3 50 50 3 4 5 7 11
 
 C 0 1 50 3 50 50 0 1 2 4 8
 
-C 1 0 50 3 50 50 2147483647 2147483648 2147483649 2147483651 2147483655
+C 1 0 50 3 50 50 4294967295 4294967295 4294967295 4294967295 4294967295
 
 C 0 0 50 3 50 50 3 4 5 7 11</dataString>
           </testData>
@@ -194,25 +196,21 @@ C 0 0 50 3 50 50 3 4 5 7 11</dataString>
 neighbourhood_size := 4;</string>
         </entry>
       </elementAttributes>
-      <pos x="120" y="-60"/>
+      <pos x="540" y="80"/>
     </visualElement>
   </visualElements>
   <wires>
     <wire>
       <p1 x="540" y="160"/>
-      <p2 x="580" y="160"/>
-    </wire>
-    <wire>
-      <p1 x="580" y="160"/>
-      <p2 x="600" y="160"/>
+      <p2 x="560" y="160"/>
     </wire>
     <wire>
       <p1 x="520" y="180"/>
       <p2 x="540" y="180"/>
     </wire>
     <wire>
-      <p1 x="580" y="160"/>
-      <p2 x="580" y="260"/>
+      <p1 x="540" y="100"/>
+      <p2 x="540" y="160"/>
     </wire>
     <wire>
       <p1 x="540" y="160"/>

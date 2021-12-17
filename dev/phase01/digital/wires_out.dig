@@ -31,7 +31,7 @@ y_wire_start := 0;
 x_comp_start := 4;
 y_comp_start := 0;
 x_comp_add:= 0;
-y_comp_add:= 5;
+y_comp_add:= 4;
 
 for (i:=0;i&lt;args.out_nodes;i++){
     adder:=addComponent(&quot;Add&quot;, x_comp_start,y_comp_start+i*y_comp_add);
@@ -42,22 +42,29 @@ for (i:=0;i&lt;args.out_nodes;i++){
     constant_zero:=addComponent(&quot;Const&quot;,x_comp_start,y_comp_start+i*y_comp_add+2);
     constant_zero.Bits=1;
     constant_zero.Value=0;
-    output:=addComponent(&quot;Out&quot;,x_comp_start+3,y_comp_start+i*y_comp_add);
+    output:=addComponent(&quot;Out&quot;,x_comp_start+11,y_comp_start+i*y_comp_add+1);
     output.Bits=32;
-    output.Label=&quot;O&quot;+i;
-    tunnel:=addComponent(&quot;Tunnel&quot;,x_comp_start+3,y_comp_start+i*y_comp_add+1);
+    output.Label=&quot;o&quot;+i;
     addWire(x_wire_start, y_wire_start, x_comp_start,y_comp_start+i*y_comp_add);
+    constant_high:=addComponent(&quot;Const&quot;,x_comp_start+9,y_comp_start+i*y_comp_add+2);
+    constant_high.Bits=32;
+    constant_high.Value=4294967295;
+    multiplexer:=addComponent(&quot;Multiplexer&quot;, x_comp_start+9,y_comp_start+i*y_comp_add);
+    multiplexer.Bits = 32;
+    multiplexer.&apos;Selector Bits&apos; = 1;
+    addWire(x_wire_start+7, y_wire_start+i*y_comp_add, x_comp_start+9,y_comp_start+i*y_comp_add);
+    addWire(x_wire_start+7, y_wire_start+i*y_comp_add+1, x_comp_start+10,y_comp_start+i*y_comp_add+2);
 }</string>
         </entry>
       </elementAttributes>
-      <pos x="60" y="-780"/>
+      <pos x="60" y="-1060"/>
     </visualElement>
     <visualElement>
       <elementName>In</elementName>
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>IN1</string>
+          <string>in</string>
         </entry>
         <entry>
           <string>Bits</string>
@@ -65,6 +72,26 @@ for (i:=0;i&lt;args.out_nodes;i++){
         </entry>
       </elementAttributes>
       <pos x="0" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>IN O0 O1 O2
+0 1 2 4
+10 11 12 14
+4294967295 4294967295 4294967295 4294967295</dataString>
+          </testData>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>out_nodes:=3;
+weights:=[1,2,4];</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-40" y="120"/>
     </visualElement>
   </visualElements>
   <wires/>

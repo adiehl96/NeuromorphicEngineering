@@ -87,7 +87,7 @@ neighbourhood_size := 1;</string>
           <string>clr</string>
         </entry>
       </elementAttributes>
-      <pos x="1560" y="40"/>
+      <pos x="1580" y="40"/>
     </visualElement>
     <visualElement>
       <elementName>extract_path.dig</elementName>
@@ -191,7 +191,7 @@ neighbourhood_size := 1;</string>
       <p2 x="1700" y="-40"/>
     </wire>
     <wire>
-      <p1 x="1560" y="40"/>
+      <p1 x="1580" y="40"/>
       <p2 x="1600" y="40"/>
     </wire>
     <wire>
