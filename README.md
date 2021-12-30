@@ -1,4 +1,4 @@
-# Implementation of a Distributed Shortest Path Length Algorithm on the Arduino MKR Vidor 4000
+# Implementation of a Distributed Shortest Path Algorithm on the Arduino MKR Vidor 4000
 ![Example Graph Implementation](./docs/images/example.png)
 This project is part of the course Neuromorphic Engineering 2122 at Radboud University.
 
@@ -20,7 +20,7 @@ If you do not have access to the Arduino MKR Vidor 4000, you can simulate the ci
 5. Click on input "VS" and set the value to the number of the node that should be the initial vertex.
 5. Click on input "VT" and set the value to the number of the node that should be the terminal vertex.
 6. Click on the 'clr' input and set this value to 0.
-7. Observe the value displayed at the output named "SP". Note that its value is displayed in hexadecimal notation.
+7. Observe the value displayed at the outputs named "SP" and "SPW". Note that its value is displayed in hexadecimal notation.
 
 ## License
 The files in directory `quartus` are released under the MIT license, which can be found in the file called [LICENSE](quartus/LICENSE).
