@@ -28,7 +28,7 @@
           <string>init</string>
         </entry>
       </elementAttributes>
-      <pos x="460" y="220"/>
+      <pos x="460" y="200"/>
     </visualElement>
     <visualElement>
       <elementName>Out</elementName>
@@ -78,7 +78,7 @@
           <string>in_nodes := args.neighbourhood_size;</string>
         </entry>
       </elementAttributes>
-      <pos x="320" y="120"/>
+      <pos x="320" y="160"/>
     </visualElement>
     <visualElement>
       <elementName>decreasing_mem.dig</elementName>
@@ -91,18 +91,20 @@
         <entry>
           <string>generic</string>
           <string>out_nodes := args.neighbourhood_size;
-weights := args.edge_weights;</string>
+weights := args.edge_weights;
+idx := args.idx;</string>
         </entry>
       </elementAttributes>
-      <pos x="560" y="160"/>
+      <pos x="560" y="140"/>
     </visualElement>
     <visualElement>
       <elementName>GenericInitCode</elementName>
       <elementAttributes>
         <entry>
           <string>generic</string>
-          <string>neighbourhood_size:=5;
-edge_weights:=[4,8,1,1,1,1];</string>
+          <string>neighbourhood_size:=4;
+edge_weights:=[4,8,1,1,1,1,1,1,1,1];
+idx := 3;</string>
         </entry>
       </elementAttributes>
       <pos x="260" y="-120"/>
@@ -117,35 +119,34 @@ y_output_start := 8;
 y_output_add:= 1;
 
 x_input_start := 16;
-y_input_start := 6;
-y_input_add:= 1;
+y_input_start := 8;
+y_input_add:= 2;
 
 y_input_offset:=0;
+
+for (i:=0;i&lt;args.neighbourhood_size;i++){
+    input:=addComponent(&quot;In&quot;,x_input_start,y_input_start+i*y_input_add + y_input_offset);
+    input.Bits=32;
+    input.Label=&quot;i&quot;+i;
+    input.small=1;
+    dinput:=addComponent(&quot;In&quot;,x_input_start,y_input_start+i*y_input_add + y_input_offset+1);
+    dinput.Bits=32;
+    dinput.Label=&quot;di&quot;+i;
+    dinput.small=1;
+}
+
+addWire(x_input_start+3,y_input_start,23,8);
+addWire(x_input_start+3,y_input_start+1,23,11);
 
 for (i:=0;i&lt;args.neighbourhood_size;i++){
     output:=addComponent(&quot;Out&quot;,x_output_start,y_output_start+i*y_output_add);
     output.Bits=32;
     output.Label=&quot;o&quot;+i;
     output.small=1;
-}
-
-for (i:=0;i&lt;args.neighbourhood_size;i++){
-    if(args.neighbourhood_size%2=0)
-    {
-	if(i&gt;=args.neighbourhood_size/2){
-	   y_input_offset = 1;
-	}
-    }
-    output:=addComponent(&quot;In&quot;,x_input_start,y_input_start+i*y_input_add + y_input_offset);
-    output.Bits=32;
-    output.Label=&quot;i&quot;+i;
-    output.small=1;
-}
-
-addWire(x_input_start+3,y_input_start + args.neighbourhood_size/2,23,8);</string>
+}</string>
         </entry>
       </elementAttributes>
-      <pos x="380" y="-940"/>
+      <pos x="380" y="-1060"/>
     </visualElement>
     <visualElement>
       <elementName>In</elementName>
@@ -159,7 +160,7 @@ addWire(x_input_start+3,y_input_start + args.neighbourhood_size/2,23,8);</string
           <string>clr</string>
         </entry>
       </elementAttributes>
-      <pos x="460" y="200"/>
+      <pos x="460" y="180"/>
     </visualElement>
     <visualElement>
       <elementName>Testcase</elementName>
@@ -196,25 +197,43 @@ C 0 0 50 3 50 50 3 4 5 7 11</dataString>
 neighbourhood_size := 4;</string>
         </entry>
       </elementAttributes>
-      <pos x="540" y="80"/>
+      <pos x="340" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>small</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>dout</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="620" y="140"/>
     </visualElement>
   </visualElements>
   <wires>
     <wire>
-      <p1 x="540" y="160"/>
+      <p1 x="520" y="160"/>
       <p2 x="560" y="160"/>
     </wire>
     <wire>
-      <p1 x="520" y="180"/>
-      <p2 x="540" y="180"/>
+      <p1 x="520" y="140"/>
+      <p2 x="540" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="540" y="140"/>
+      <p2 x="560" y="140"/>
     </wire>
     <wire>
       <p1 x="540" y="100"/>
-      <p2 x="540" y="160"/>
-    </wire>
-    <wire>
-      <p1 x="540" y="160"/>
-      <p2 x="540" y="180"/>
+      <p2 x="540" y="140"/>
     </wire>
   </wires>
   <measurementOrdering/>

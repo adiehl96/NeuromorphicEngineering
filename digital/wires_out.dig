@@ -14,10 +14,11 @@
         <entry>
           <string>generic</string>
           <string>out_nodes:=3;
-weights:=[1,2,4];</string>
+weights:=[1,2,4];
+idx:=3;</string>
         </entry>
       </elementAttributes>
-      <pos x="-60" y="-120"/>
+      <pos x="-80" y="60"/>
     </visualElement>
     <visualElement>
       <elementName>GenericCode</elementName>
@@ -26,12 +27,16 @@ weights:=[1,2,4];</string>
           <string>generic</string>
           <string>num_comp := args.out_nodes;
 x_wire_start := 0;
-y_wire_start := 0;
+y_wire_start := 3;
 
 x_comp_start := 4;
-y_comp_start := 0;
+y_comp_start := 3;
 x_comp_add:= 0;
 y_comp_add:= 4;
+
+constant_high:=addComponent(&quot;Const&quot;,24,-2);
+constant_high.Bits=32;
+constant_high.Value=args.idx;
 
 for (i:=0;i&lt;args.out_nodes;i++){
     adder:=addComponent(&quot;Add&quot;, x_comp_start,y_comp_start+i*y_comp_add);
@@ -45,7 +50,7 @@ for (i:=0;i&lt;args.out_nodes;i++){
     output:=addComponent(&quot;Out&quot;,x_comp_start+11,y_comp_start+i*y_comp_add+1);
     output.Bits=32;
     output.Label=&quot;o&quot;+i;
-    addWire(x_wire_start, y_wire_start, x_comp_start,y_comp_start+i*y_comp_add);
+    addWire(0, 0, x_comp_start,y_comp_start+i*y_comp_add);
     constant_high:=addComponent(&quot;Const&quot;,x_comp_start+9,y_comp_start+i*y_comp_add+2);
     constant_high.Bits=32;
     constant_high.Value=4294967295;
@@ -57,7 +62,7 @@ for (i:=0;i&lt;args.out_nodes;i++){
 }</string>
         </entry>
       </elementAttributes>
-      <pos x="60" y="-1060"/>
+      <pos x="40" y="-1260"/>
     </visualElement>
     <visualElement>
       <elementName>In</elementName>
@@ -91,9 +96,231 @@ for (i:=0;i&lt;args.out_nodes;i++){
 weights:=[1,2,4];</string>
         </entry>
       </elementAttributes>
-      <pos x="-40" y="120"/>
+      <pos x="-40" y="160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>din</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="60" y="-60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>small</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>dout</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="540" y="-60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Add</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="280" y="-60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>0</long>
+        </entry>
+      </elementAttributes>
+      <pos x="480" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes/>
+      <pos x="540" y="-40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Add</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="80" y="-60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Add</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="180" y="-60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes/>
+      <pos x="140" y="-40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes/>
+      <pos x="240" y="-40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Add</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="480" y="-60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes/>
+      <pos x="340" y="-40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>0</long>
+        </entry>
+      </elementAttributes>
+      <pos x="280" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>0</long>
+        </entry>
+      </elementAttributes>
+      <pos x="180" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>0</long>
+        </entry>
+      </elementAttributes>
+      <pos x="80" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Add</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="380" y="-60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>0</long>
+        </entry>
+      </elementAttributes>
+      <pos x="380" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes/>
+      <pos x="440" y="-40"/>
     </visualElement>
   </visualElements>
-  <wires/>
+  <wires>
+    <wire>
+      <p1 x="60" y="-40"/>
+      <p2 x="80" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="-40"/>
+      <p2 x="180" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="260" y="-40"/>
+      <p2 x="280" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="360" y="-40"/>
+      <p2 x="380" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="-60"/>
+      <p2 x="80" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="-60"/>
+      <p2 x="160" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="240" y="-60"/>
+      <p2 x="260" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="340" y="-60"/>
+      <p2 x="360" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="440" y="-60"/>
+      <p2 x="480" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="260" y="-60"/>
+      <p2 x="280" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="-60"/>
+      <p2 x="180" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="360" y="-60"/>
+      <p2 x="380" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="-60"/>
+      <p2 x="160" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="260" y="-60"/>
+      <p2 x="260" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="360" y="-60"/>
+      <p2 x="360" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="-60"/>
+      <p2 x="60" y="-40"/>
+    </wire>
+  </wires>
   <measurementOrdering/>
 </circuit>
