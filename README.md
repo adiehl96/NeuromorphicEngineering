@@ -34,6 +34,6 @@ In the directory `docs/tests`, there are several csv files describing the output
 
 ## References
 This project makes use of the following projects:
-* [JTAG_Interface](https://github.com/HerrNamenlos123/JTAG_Interface)
-* [Digital](https://github.com/hneemann/Digital)
-* [Quarev Telegram Bot](https://github.com/adiehl96/quarevTelegramBot)
+* [JTAG_Interface](https://github.com/HerrNamenlos123/JTAG_Interface/tree/07b673bd0892cdd0b41e93349961aeb7feae428e)
+* [Digital v0.28](https://github.com/hneemann/Digital)
+* [Quarev Telegram Bot](https://github.com/adiehl96/quarevTelegramBot/tree/cfc24fd174689d963be4a7853fe5772c7890ee32)

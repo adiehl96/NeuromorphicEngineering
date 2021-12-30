@@ -102,7 +102,7 @@ idx := args.idx;</string>
       <elementAttributes>
         <entry>
           <string>generic</string>
-          <string>neighbourhood_size:=4;
+          <string>neighbourhood_size:=2;
 edge_weights:=[4,8,1,1,1,1,1,1,1,1];
 idx := 3;</string>
         </entry>
@@ -168,33 +168,33 @@ for (i:=0;i&lt;args.neighbourhood_size;i++){
         <entry>
           <string>Testdata</string>
           <testData>
-            <dataString>clk clr init i0 i1 i2 i3 own o0 o1 o2 o3
+            <dataString>clk clr init i0 i1 di0 di1 own o0 o1 dout
 
 ############################ Vertex 0 to every other Vertex 
 
-0 1 0 10 10 10 10 4294967295 4294967295 4294967295 4294967295 4294967295 # reset line
+0 1 0 10 10 66 77 4294967295 4294967295 4294967295 3 # reset line
 
-C 0 0 10 10 10 10 10 11 12 14 18
+C 0 0 10 10 66 77 10 11 12 1235
 
-C 0 0 10 5 10 10 5 6 7 9 13
+C 0 0 10 5 66 77 5 6 7 1235
 
-C 1 0 10 5 10 10 4294967295 4294967295 4294967295 4294967295 4294967295
+C 1 0 10 5 66 77 4294967295 4294967295 4294967295 3
 
-C 0 0 50 50 50 50 50 51 52 54 58
+C 0 0 50 50 66 77 50 51 52 1235
 
-C 0 0 50 3 50 50 3 4 5 7 11
+C 0 0 50 3 66 77 3 4 5 1235
 
-C 0 1 50 3 50 50 0 1 2 4 8
+C 0 1 50 3 66 77 0 1 2 3
 
-C 1 0 50 3 50 50 4294967295 4294967295 4294967295 4294967295 4294967295
-
-C 0 0 50 3 50 50 3 4 5 7 11</dataString>
+C 1 0 50 3 66 77 4294967295 4294967295 4294967295 3
+C 0 0 3 50 66 77 3 4 5 1059</dataString>
           </testData>
         </entry>
         <entry>
           <string>generic</string>
           <string>edge_weights := [1,2,4,8];
-neighbourhood_size := 4;</string>
+neighbourhood_size := 2;
+idx :=3;</string>
         </entry>
       </elementAttributes>
       <pos x="340" y="60"/>

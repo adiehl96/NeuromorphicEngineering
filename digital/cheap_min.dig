@@ -101,11 +101,11 @@
         <entry>
           <string>Testdata</string>
           <testData>
-            <dataString>a b min
-0 0 0
-0 2 0
-2 0 0
-2 2 2
+            <dataString>a b da db min dmin
+0 0 0 0 0 0
+0 2 0 0 0 0
+2 0 0 0 0 0
+2 2 5 7 2 7
 
 </dataString>
           </testData>

@@ -309,18 +309,18 @@ idx := 8;</string>
         <entry>
           <string>Testdata</string>
           <testData>
-            <dataString>clk clr VS VT SP
+            <dataString>clk clr VS VT SP SPW
 
 ############################ Vertex 0 to every other Vertex 
 loop(s,9)
   loop(t,9)
-    C 1 (s) (t) 0 # reset line
+    C 1 (s) (t) 0 0 # reset line
 
     loop(a,8)
-      C 0 (s) (t) 0
+      C 0 (s) (t) 0 0
     end loop
 
-    C 0 (s) (t) X
+    C 0 (s) (t) X X
   end loop
 end loop</dataString>
           </testData>

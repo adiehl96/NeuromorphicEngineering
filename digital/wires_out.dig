@@ -84,16 +84,18 @@ for (i:=0;i&lt;args.out_nodes;i++){
         <entry>
           <string>Testdata</string>
           <testData>
-            <dataString>in o0 o1 o2
-0 1 2 4
-10 11 12 14
-4294967295 4294967295 4294967295 4294967295</dataString>
+            <dataString>in o0 o1 o2 din dout
+0 1 2 4 0 4
+10 11 12 14 1 20
+4294967295 4294967295 4294967295 4294967295 100 1604
+</dataString>
           </testData>
         </entry>
         <entry>
           <string>generic</string>
           <string>out_nodes:=3;
-weights:=[1,2,4];</string>
+weights:=[1,2,4];
+idx := 4;</string>
         </entry>
       </elementAttributes>
       <pos x="-40" y="160"/>
