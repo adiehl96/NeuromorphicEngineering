@@ -23,38 +23,57 @@
       <elementAttributes>
         <entry>
           <string>generic</string>
-          <string>num_comp := args.in_nodes-1;
-x_start := 26;
-y_start := 2;
+          <string>num_min := args.in_nodes-1;
 
-x_comp_start := 28;
-y_comp_start := 0;
-x_comp_add:= 5;
-y_comp_add:= 2;
+x_inp_start := 0;
+y_inp_start := -2;
+y_inp_add:= 3;
+
+x_min_start := 2;
+y_min_start := 0;
+x_min_add:= 5;
+y_min_add:= 3;
 
 //output creation
-outp:= addComponent(&quot;Out&quot;, x_comp_start+num_comp*x_comp_add, y_comp_start+num_comp*y_comp_add);
+outp:= addComponent(&quot;Out&quot;, x_min_start+num_min*x_min_add, y_min_start+num_min*y_min_add);
 outp.Bits=32;
-outp.Label=&quot;out&quot;;
+outp.Label=&quot;min&quot;;
+
+//data output creation
+doutp:= addComponent(&quot;Out&quot;, x_min_start+num_min*x_min_add, y_min_start+num_min*y_min_add+2);
+doutp.Bits=32;
+doutp.Label=&quot;dmin&quot;;
 
 //cheapest selector creations and inter-wires
-for (i:=0;i&lt;num_comp;i++){
-    comp:=addComponent(&quot;cheap_min.dig&quot;,x_comp_start+i*x_comp_add, y_comp_start+i*y_comp_add);
-    addWire(x_comp_start+i*x_comp_add+3,y_comp_start+i*y_comp_add+1,x_comp_start+(i+1)*x_comp_add,y_comp_start+(i+1)*y_comp_add);
+for (i:=0;i&lt;num_min;i++){
+    comp:=addComponent(&quot;cheap_min.dig&quot;,x_min_start+i*x_min_add, y_min_start+i*y_min_add);
+    addWire(x_min_start+i*x_min_add+3,y_min_start+i*y_min_add,x_min_start+(i+1)*x_min_add,y_min_start+(i+1)*y_min_add);
+    addWire(x_min_start+i*x_min_add+3,y_min_start+i*y_min_add+1,x_min_start+(i+1)*x_min_add,y_min_start+(i+1)*y_min_add+2);
 }
 
-//First input and wire
-input1:=addComponent(&quot;In&quot;,26,0);
-input1.Bits=32;
-input1.Label=&quot;i&quot;+0;
-addWire(26, 0, x_comp_start,y_comp_start);
+input:=addComponent(&quot;In&quot;,0,0);
+input.Bits=32;
+input.Label=&quot;i0&quot;;
+input.small = 1;
+addWire(0, 0, x_min_start,y_min_start);
+dinput:=addComponent(&quot;In&quot;,0,2);
+dinput.Bits=32;
+dinput.Label=&quot;di0&quot;;
+dinput.small = 1;
+addWire(0, 2, x_min_start,y_min_start+2);
 
 //other input creations and wiring
-for (i:=0;i&lt;args.in_nodes-1;i++){
-    input:=addComponent(&quot;In&quot;,x_start,y_start+y_comp_add*i);
+for (i:=1;i&lt;args.in_nodes;i++){
+    input:=addComponent(&quot;In&quot;,x_inp_start,y_inp_start+y_inp_add*i);
     input.Bits=32;
-    input.Label=&quot;i&quot;+(i+1);
-    addWire(x_start, y_start+y_comp_add*i,x_comp_start+i*x_comp_add,y_comp_start+i*y_comp_add+2);
+    input.Label=&quot;i&quot;+(i);
+    input.small = 1;
+    addWire(x_inp_start, y_inp_start+y_inp_add*i,x_min_start+(i-1)*x_min_add,y_min_start+(i-1)*y_min_add + 1);
+    dinput:=addComponent(&quot;In&quot;,x_inp_start,y_inp_start+y_inp_add*i+2);
+    dinput.Bits=32;
+    dinput.Label=&quot;di&quot;+(i);
+    dinput.small = 1;
+    addWire(x_inp_start, y_inp_start+y_inp_add*i+2,x_min_start+(i-1)*x_min_add,y_min_start+(i-1)*y_min_add + 3);
 }</string>
         </entry>
       </elementAttributes>
@@ -66,15 +85,15 @@ for (i:=0;i&lt;args.in_nodes-1;i++){
         <entry>
           <string>Testdata</string>
           <testData>
-            <dataString>i0 i1 i2 i3 i4 out
-5 5 5 5 5 5
-5 5 5 5 3 3
-0 0 0 0 0 0</dataString>
+            <dataString>i0 i1 i2 di0 di1 di2 min dmin
+5 5 5 5 5 5 5 5
+5 5 3 3 5 5 3 5
+0 0 0 0 0 0 0 0 </dataString>
           </testData>
         </entry>
         <entry>
           <string>generic</string>
-          <string>in_nodes := 5;</string>
+          <string>in_nodes := 3;</string>
         </entry>
       </elementAttributes>
       <pos x="740" y="0"/>

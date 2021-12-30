@@ -1,4 +1,4 @@
-"step","in","o0","o1","o2"
-"0","0","1","2","4"
-"1","A","B","C","E"
-"2","FFFFFFFF","FFFFFFFF","FFFFFFFF","FFFFFFFF"
+"step","in","o0","o1","o2","din","dout"
+"0","0","1","2","4","0","4"
+"1","A","B","C","E","1","0x14"
+"2","FFFFFFFF","FFFFFFFF","FFFFFFFF","FFFFFFFF","0x64","0x644"

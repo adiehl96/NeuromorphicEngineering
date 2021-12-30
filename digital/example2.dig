@@ -13,10 +13,11 @@
         <entry>
           <string>generic</string>
           <string>edge_weights := [4];
-neighbourhood_size := 1;</string>
+neighbourhood_size := 1;
+idx := 1;</string>
         </entry>
       </elementAttributes>
-      <pos x="1700" y="60"/>
+      <pos x="1720" y="120"/>
     </visualElement>
     <visualElement>
       <elementName>node_module.dig</elementName>
@@ -28,10 +29,11 @@ neighbourhood_size := 1;</string>
         <entry>
           <string>generic</string>
           <string>edge_weights := [4];
-neighbourhood_size := 1;</string>
+neighbourhood_size := 1;
+idx := 0;</string>
         </entry>
       </elementAttributes>
-      <pos x="1700" y="-80"/>
+      <pos x="1720" y="-80"/>
     </visualElement>
     <visualElement>
       <elementName>Clock</elementName>
@@ -45,7 +47,7 @@ neighbourhood_size := 1;</string>
           <string>clock</string>
         </entry>
       </elementAttributes>
-      <pos x="1740" y="-160"/>
+      <pos x="1760" y="-160"/>
     </visualElement>
     <visualElement>
       <elementName>In</elementName>
@@ -63,7 +65,7 @@ neighbourhood_size := 1;</string>
           <int>32</int>
         </entry>
       </elementAttributes>
-      <pos x="1920" y="-60"/>
+      <pos x="1960" y="-60"/>
     </visualElement>
     <visualElement>
       <elementName>Out</elementName>
@@ -77,7 +79,7 @@ neighbourhood_size := 1;</string>
           <int>32</int>
         </entry>
       </elementAttributes>
-      <pos x="1980" y="-20"/>
+      <pos x="2020" y="-20"/>
     </visualElement>
     <visualElement>
       <elementName>In</elementName>
@@ -87,7 +89,7 @@ neighbourhood_size := 1;</string>
           <string>clr</string>
         </entry>
       </elementAttributes>
-      <pos x="1580" y="40"/>
+      <pos x="1580" y="100"/>
     </visualElement>
     <visualElement>
       <elementName>extract_path.dig</elementName>
@@ -97,7 +99,7 @@ neighbourhood_size := 1;</string>
           <string>number_of_inputs := 2;</string>
         </entry>
       </elementAttributes>
-      <pos x="1920" y="-60"/>
+      <pos x="1960" y="-60"/>
     </visualElement>
     <visualElement>
       <elementName>In</elementName>
@@ -167,100 +169,124 @@ neighbourhood_size := 1;</string>
   </visualElements>
   <wires>
     <wire>
-      <p1 x="1660" y="0"/>
-      <p2 x="1820" y="0"/>
+      <p1 x="1880" y="0"/>
+      <p2 x="1960" y="0"/>
     </wire>
     <wire>
-      <p1 x="1840" y="0"/>
-      <p2 x="1920" y="0"/>
+      <p1 x="1600" y="160"/>
+      <p2 x="1720" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="1820" y="160"/>
+      <p2 x="1860" y="160"/>
     </wire>
     <wire>
       <p1 x="1580" y="-100"/>
       <p2 x="1600" y="-100"/>
     </wire>
     <wire>
-      <p1 x="1600" y="100"/>
-      <p2 x="1700" y="100"/>
+      <p1 x="1580" y="100"/>
+      <p2 x="1600" y="100"/>
     </wire>
     <wire>
-      <p1 x="1860" y="-40"/>
-      <p2 x="1920" y="-40"/>
+      <p1 x="1600" y="100"/>
+      <p2 x="1920" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="1900" y="-40"/>
+      <p2 x="1960" y="-40"/>
     </wire>
     <wire>
       <p1 x="1660" y="-40"/>
-      <p2 x="1700" y="-40"/>
+      <p2 x="1720" y="-40"/>
     </wire>
     <wire>
-      <p1 x="1580" y="40"/>
-      <p2 x="1600" y="40"/>
+      <p1 x="1820" y="-40"/>
+      <p2 x="1840" y="-40"/>
     </wire>
     <wire>
-      <p1 x="1600" y="40"/>
-      <p2 x="1880" y="40"/>
+      <p1 x="1680" y="40"/>
+      <p2 x="1840" y="40"/>
     </wire>
     <wire>
-      <p1 x="1800" y="-80"/>
-      <p2 x="1840" y="-80"/>
+      <p1 x="1680" y="200"/>
+      <p2 x="1720" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="1640" y="140"/>
+      <p2 x="1720" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="1820" y="140"/>
+      <p2 x="1880" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="1820" y="-80"/>
+      <p2 x="1880" y="-80"/>
     </wire>
     <wire>
       <p1 x="1620" y="-80"/>
-      <p2 x="1700" y="-80"/>
+      <p2 x="1720" y="-80"/>
     </wire>
     <wire>
-      <p1 x="1800" y="80"/>
-      <p2 x="1820" y="80"/>
+      <p1 x="1900" y="80"/>
+      <p2 x="1940" y="80"/>
     </wire>
     <wire>
-      <p1 x="1640" y="80"/>
-      <p2 x="1700" y="80"/>
+      <p1 x="1700" y="80"/>
+      <p2 x="1860" y="80"/>
     </wire>
     <wire>
-      <p1 x="1680" y="-20"/>
-      <p2 x="1700" y="-20"/>
+      <p1 x="1700" y="-20"/>
+      <p2 x="1720" y="-20"/>
     </wire>
     <wire>
-      <p1 x="1880" y="-20"/>
-      <p2 x="1920" y="-20"/>
+      <p1 x="1920" y="-20"/>
+      <p2 x="1960" y="-20"/>
     </wire>
     <wire>
       <p1 x="1600" y="-20"/>
       <p2 x="1660" y="-20"/>
     </wire>
     <wire>
-      <p1 x="1860" y="20"/>
-      <p2 x="1920" y="20"/>
+      <p1 x="1660" y="180"/>
+      <p2 x="1720" y="180"/>
     </wire>
     <wire>
-      <p1 x="1680" y="20"/>
-      <p2 x="1820" y="20"/>
+      <p1 x="1660" y="20"/>
+      <p2 x="1860" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="1940" y="20"/>
+      <p2 x="1960" y="20"/>
     </wire>
     <wire>
       <p1 x="1640" y="-120"/>
-      <p2 x="1860" y="-120"/>
+      <p2 x="1900" y="-120"/>
     </wire>
     <wire>
-      <p1 x="1660" y="120"/>
-      <p2 x="1700" y="120"/>
+      <p1 x="1820" y="120"/>
+      <p2 x="1900" y="120"/>
     </wire>
     <wire>
-      <p1 x="1800" y="-60"/>
-      <p2 x="1820" y="-60"/>
+      <p1 x="1620" y="120"/>
+      <p2 x="1720" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="1820" y="-60"/>
+      <p2 x="1860" y="-60"/>
     </wire>
     <wire>
       <p1 x="1640" y="-60"/>
-      <p2 x="1700" y="-60"/>
+      <p2 x="1720" y="-60"/>
     </wire>
     <wire>
-      <p1 x="1800" y="60"/>
-      <p2 x="1860" y="60"/>
+      <p1 x="1720" y="60"/>
+      <p2 x="1880" y="60"/>
     </wire>
     <wire>
-      <p1 x="1620" y="60"/>
-      <p2 x="1700" y="60"/>
-    </wire>
-    <wire>
-      <p1 x="1740" y="-160"/>
-      <p2 x="1860" y="-160"/>
+      <p1 x="1760" y="-160"/>
+      <p2 x="1900" y="-160"/>
     </wire>
     <wire>
       <p1 x="1600" y="-100"/>
@@ -268,35 +294,27 @@ neighbourhood_size := 1;</string>
     </wire>
     <wire>
       <p1 x="1600" y="-20"/>
-      <p2 x="1600" y="40"/>
-    </wire>
-    <wire>
-      <p1 x="1600" y="40"/>
       <p2 x="1600" y="100"/>
     </wire>
     <wire>
-      <p1 x="1680" y="-20"/>
-      <p2 x="1680" y="20"/>
+      <p1 x="1600" y="100"/>
+      <p2 x="1600" y="160"/>
     </wire>
     <wire>
-      <p1 x="1840" y="-80"/>
-      <p2 x="1840" y="0"/>
+      <p1 x="1920" y="-20"/>
+      <p2 x="1920" y="100"/>
     </wire>
     <wire>
-      <p1 x="1620" y="-40"/>
-      <p2 x="1620" y="60"/>
+      <p1 x="1700" y="-20"/>
+      <p2 x="1700" y="80"/>
     </wire>
     <wire>
-      <p1 x="1860" y="20"/>
-      <p2 x="1860" y="60"/>
+      <p1 x="1860" y="80"/>
+      <p2 x="1860" y="160"/>
     </wire>
     <wire>
-      <p1 x="1860" y="-160"/>
-      <p2 x="1860" y="-120"/>
-    </wire>
-    <wire>
-      <p1 x="1860" y="-120"/>
-      <p2 x="1860" y="-40"/>
+      <p1 x="1860" y="-60"/>
+      <p2 x="1860" y="20"/>
     </wire>
     <wire>
       <p1 x="1640" y="-120"/>
@@ -304,31 +322,59 @@ neighbourhood_size := 1;</string>
     </wire>
     <wire>
       <p1 x="1640" y="-60"/>
-      <p2 x="1640" y="80"/>
+      <p2 x="1640" y="140"/>
     </wire>
     <wire>
-      <p1 x="1880" y="-20"/>
-      <p2 x="1880" y="40"/>
+      <p1 x="1900" y="80"/>
+      <p2 x="1900" y="120"/>
     </wire>
     <wire>
-      <p1 x="1820" y="20"/>
-      <p2 x="1820" y="80"/>
+      <p1 x="1900" y="-160"/>
+      <p2 x="1900" y="-120"/>
     </wire>
     <wire>
-      <p1 x="1820" y="-60"/>
-      <p2 x="1820" y="0"/>
+      <p1 x="1900" y="-120"/>
+      <p2 x="1900" y="-40"/>
     </wire>
     <wire>
-      <p1 x="1660" y="0"/>
-      <p2 x="1660" y="120"/>
+      <p1 x="1580" y="-160"/>
+      <p2 x="1580" y="-120"/>
+    </wire>
+    <wire>
+      <p1 x="1840" y="-40"/>
+      <p2 x="1840" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="1680" y="40"/>
+      <p2 x="1680" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="1620" y="-40"/>
+      <p2 x="1620" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="1940" y="20"/>
+      <p2 x="1940" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="1880" y="-80"/>
+      <p2 x="1880" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="1880" y="60"/>
+      <p2 x="1880" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="1720" y="0"/>
+      <p2 x="1720" y="60"/>
     </wire>
     <wire>
       <p1 x="1660" y="-40"/>
       <p2 x="1660" y="-20"/>
     </wire>
     <wire>
-      <p1 x="1580" y="-160"/>
-      <p2 x="1580" y="-120"/>
+      <p1 x="1660" y="20"/>
+      <p2 x="1660" y="180"/>
     </wire>
   </wires>
   <measurementOrdering/>

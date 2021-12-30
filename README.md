@@ -1,4 +1,4 @@
-# Implementation of a Distributed Shortest Path Length Algorithm on the Arduino MKR Vidor 4000
+# Implementation of a Distributed Shortest Path Algorithm on the Arduino MKR Vidor 4000
 ![Example Graph Implementation](./docs/images/example.png)
 This project is part of the course Neuromorphic Engineering 2122 at Radboud University.
 
@@ -20,7 +20,7 @@ If you do not have access to the Arduino MKR Vidor 4000, you can simulate the ci
 5. Click on input "VS" and set the value to the number of the node that should be the initial vertex.
 5. Click on input "VT" and set the value to the number of the node that should be the terminal vertex.
 6. Click on the 'clr' input and set this value to 0.
-7. Observe the value displayed at the output named "SP". Note that its value is displayed in hexadecimal notation.
+7. Observe the value displayed at the outputs named "SP" and "SPW". Note that its value is displayed in hexadecimal notation.
 
 ## License
 The files in directory `quartus` are released under the MIT license, which can be found in the file called [LICENSE](quartus/LICENSE).
@@ -34,6 +34,6 @@ In the directory `docs/tests`, there are several csv files describing the output
 
 ## References
 This project makes use of the following projects:
-* [JTAG_Interface](https://github.com/HerrNamenlos123/JTAG_Interface)
-* [Digital](https://github.com/hneemann/Digital)
-* [Quarev Telegram Bot](https://github.com/adiehl96/quarevTelegramBot)
+* [JTAG_Interface](https://github.com/HerrNamenlos123/JTAG_Interface/tree/07b673bd0892cdd0b41e93349961aeb7feae428e)
+* [Digital v0.28](https://github.com/hneemann/Digital)
+* [Quarev Telegram Bot](https://github.com/adiehl96/quarevTelegramBot/tree/cfc24fd174689d963be4a7853fe5772c7890ee32)
