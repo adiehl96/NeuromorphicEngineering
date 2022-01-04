@@ -71,7 +71,38 @@ void loop() {
   
 	delay(1); // given that we are using a 120 MegaHertz clock, this delay expressed in milliseconds is too large even if it's only set to 1.
 
-  //////////////////////////////////////////////////////// Read out the shortest path length
+  //////////////////////////////////////////////////////// Read out the shortest path and its length
   uint32_t shortestLength = readJTAG(0);
+  uint32_t shortestPath = readJTAG(1);
+  
+  int shortestPathList[8];
+  for (int i = 0; i < 8; i++)
+  {
+    shortestPathList[i] = (shortestPath >> 4*i) & 15;
+  }
+
+  int initial_idx;
+  int terminal_idx;
+  for (int i = 0; i < 8; i++)
+  {
+    if (shortestPathList[i] == initial_vertex){
+      initial_idx = i;
+      break;
+    }
+  }
+
+  for (int i = 0; i < 8; i++)
+  {
+    if (shortestPathList[i] == terminal_vertex){
+      terminal_idx = i;
+      break;
+    }
+  }
+
+  Serial.print("Shortest path from v"); Serial.print(initial_vertex); Serial.print(" to v"); Serial.print(terminal_vertex); Serial.print(": "); 
+  for (int i = initial_idx; i > terminal_idx; i--){
+    Serial.print(shortestPathList[i]); Serial.print(" -> ");
+  }
+  Serial.println(shortestPathList[terminal_idx]);
   Serial.print("Shortest path length from v"); Serial.print(initial_vertex); Serial.print(" to v"); Serial.print(terminal_vertex); Serial.print(": "); Serial.println(shortestLength);
 }
