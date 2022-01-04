@@ -2427,8 +2427,6 @@ module example (
   wire s59;
   wire s60;
   wire s61;
-  wire s62;
-  wire s63;
   assign s55 = VS[3:0];
   assign s56 = VS[31:4];
   Demux4 Demux4_i0 (
@@ -2447,9 +2445,7 @@ module example (
     .out_10( s58 ),
     .out_11( s59 ),
     .out_12( s60 ),
-    .out_13( s61 ),
-    .out_14( s62 ),
-    .out_15( s63 )
+    .out_13( s61 )
   );
   // 0
   node_module_gen0 node_module_gen0_i1 (

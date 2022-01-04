@@ -165,8 +165,7 @@ SYSTEM_PLL PLL_inst(
 
 
 MyDesign MyDesign_inst(
-	.iCLK_MAIN(wCLK120)		// Attach main 120MHz clock
-
+	.iCLK_MAIN(wCLK120),		// Attach main 120MHz clock
 );
 
 
