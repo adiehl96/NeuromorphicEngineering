@@ -23,9 +23,9 @@ If you do not have access to the Arduino MKR Vidor 4000, you can simulate the ci
 7. Observe the value displayed at the outputs named "SP" and "SPW". Note that its value is displayed in hexadecimal notation.
 
 ## License
-The files in directory `quartus` are released under the MIT license, which can be found in the file called [LICENSE](quartus/LICENSE).
+The files in directory `arduino` have previously been released under the MIT license, which can be found in the file called [arduino/LICENSE](arduino/LICENSE).
 
-Everything else in this repository is released under the GNU General Public License v3.0 which you can find in the file called [LICENSE](LICENSE).
+Everything in this repository (including the arduino directory) is released under the GNU General Public License v3.0 which you can find in the file called [LICENSE](LICENSE).
 
 ## Documentation
 You can find images of all graphs as well as a schematic of the circuits integration with JTAG in the directory `docs/images`.
